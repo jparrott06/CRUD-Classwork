@@ -33,6 +33,7 @@ router.use(express.json());
 
 
 router.get("/", homeController.index);
+//router.get("/contact", homeController.contact);
 
 router.get("/subscribers", subscribersController.index, subscribersController.indexView);
 router.get("/subscribers/new", subscribersController.new);

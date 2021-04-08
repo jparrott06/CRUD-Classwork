@@ -62,7 +62,7 @@ module.exports = {
         let courseId = req.params.id;
         Course.findById(courseId)
             .then(course => {
-                res.render("/courses/edit", { course: course });
+                res.render("courses/edit", { course: course });
             })
             .catch(error => {
                 console.log(`Error fetching course by ID: ${error.message}`);
@@ -75,7 +75,8 @@ module.exports = {
             title: req.body.title,
             description: req.body.description,
             maxStudents: req.body.maxStudents,
-            cost: req.body.cost
+            cost: req.body.cost,
+            _id: courseId
         });
 
         Course.findByIdAndUpdate(courseId, updatedCourse)

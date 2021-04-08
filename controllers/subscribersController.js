@@ -61,7 +61,7 @@ module.exports = {
         let subscriberId = req.params.id;
         Subscriber.findById(subscriberId)
             .then(subscriber => {
-                res.render("/subscribers/edit", { subscriber: subscriber });
+                res.render("subscribers/edit", { subscriber: subscriber });
             })
             .catch(error => {
                 console.log(`Error fetching subscriber by ID: ${error.message}`);
@@ -73,7 +73,8 @@ module.exports = {
         let updatedSubscriber = new Subscriber({
             name: req.body.name,
             email: req.body.email,
-            zipCode: req.body.zipCode
+            zipCode: req.body.zipCode,
+            _id: subscriberId
         });
 
         Subscriber.findByIdAndUpdate(subscriberId, updatedSubscriber)
