@@ -85,3 +85,13 @@ a {
   display: block;
   margin: 5px;
 }
+
+form {
+  margin: 0 auto;
+  width:fit-content;
+}
+
+form > * {
+  display: flex;
+  width:50vh;
+}
